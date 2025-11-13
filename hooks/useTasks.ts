@@ -17,18 +17,46 @@ export function useTasks() {
 
   // Load tasks from localStorage
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
+    // Load initial data
+    const loadFromStorage = () => {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) {
+        setTasks(DEMO_TASKS);
+        return;
+      }
+
       try {
         const parsed = JSON.parse(saved);
         setTasks(parsed);
       } catch {
         setTasks(DEMO_TASKS);
       }
-    } else {
-      setTasks(DEMO_TASKS);
-    }
+    };
+
+    loadFromStorage();
     setIsInitialized(true);
+  }, []);
+
+  // Listen for storage changes from other tabs
+  useEffect(() => {
+    const handleStorageChange = (e: StorageEvent) => {
+      // Early return for irrelevant changes
+      if (e.key !== STORAGE_KEY) return;
+      if (!e.newValue) return;
+
+      try {
+        const parsed = JSON.parse(e.newValue);
+        setTasks(parsed);
+      } catch (error) {
+        console.error('Failed to sync tasks from storage:', error);
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
   }, []);
 
   // Save tasks to localStorage
@@ -83,10 +111,9 @@ export function useTasks() {
   const moveTask = (
     fromQuadrant: QuadrantType,
     toQuadrant: QuadrantType,
-    taskId: number
+    taskId: number,
+    targetIndex?: number
   ) => {
-    if (fromQuadrant === toQuadrant) return;
-
     setTasks((prev) => {
       const taskIndex = prev[fromQuadrant].findIndex((t) => t.id === taskId);
       if (taskIndex === -1) return prev;
@@ -95,10 +122,29 @@ export function useTasks() {
       const newFromQuadrant = [...prev[fromQuadrant]];
       newFromQuadrant.splice(taskIndex, 1);
 
+      // If moving within the same quadrant (reordering)
+      if (fromQuadrant === toQuadrant) {
+        // Calculate the new index after removal
+        const insertIndex = targetIndex !== undefined
+          ? (targetIndex > taskIndex ? targetIndex - 1 : targetIndex)
+          : newFromQuadrant.length;
+
+        newFromQuadrant.splice(insertIndex, 0, task);
+        return {
+          ...prev,
+          [fromQuadrant]: newFromQuadrant,
+        };
+      }
+
+      // Moving to a different quadrant
+      const newToQuadrant = [...prev[toQuadrant]];
+      const insertIndex = targetIndex !== undefined ? targetIndex : newToQuadrant.length;
+      newToQuadrant.splice(insertIndex, 0, task);
+
       return {
         ...prev,
         [fromQuadrant]: newFromQuadrant,
-        [toQuadrant]: [...prev[toQuadrant], task],
+        [toQuadrant]: newToQuadrant,
       };
     });
   };
