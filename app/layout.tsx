@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Four Quadrants To Do - MotherDuck Style",
+  title: "Eisenhouwer Matrix",
   description: "Organize tasks by urgency and importance",
 };
 

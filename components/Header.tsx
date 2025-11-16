@@ -12,7 +12,7 @@ export function Header({ onClearAll, onShowStatistics }: HeaderProps) {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="flex-1">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-1 sm:mb-2 text-[#383838]">
-              FOUR QUADRANTS TO DO
+              Eisenhouwer Matrix
             </h1>
             <p className="text-sm sm:text-base text-[#383838]/80">
               Organize tasks by urgency and importance
