@@ -1,0 +1,76 @@
+{
+  "appName": "優先次序矩陣软件",
+  "header": {
+    "title": "優先次序矩陣软件（Eisenhower Matrix）",
+    "subtitle": "用優先次序矩陣快速整理任務的緊急與重要程度"
+  },
+  "actions": {
+    "clearAll": "清空全部",
+    "stats": "統計",
+    "add": "新增",
+    "cancel": "取消"
+  },
+  "quadrants": {
+    "doFirst": {
+      "title": "立即處理",
+      "subtitle": "緊急且重要"
+    },
+    "schedule": {
+      "title": "計畫安排",
+      "subtitle": "不緊急但重要"
+    },
+    "delegate": {
+      "title": "委派他人",
+      "subtitle": "緊急但不重要"
+    },
+    "eliminate": {
+      "title": "果斷捨棄",
+      "subtitle": "不緊急也不重要"
+    },
+    "addButton": "+ 新增",
+    "emptyHint": "目前沒有任務，點擊「+ 新增」建立一筆。"
+  },
+  "home": {
+    "statsCard": {
+      "urgentImportant": "立即處理",
+      "notUrgentImportant": "計畫安排",
+      "urgentNotImportant": "委派他人",
+      "notUrgentNotImportant": "果斷捨棄"
+    }
+  },
+  "modals": {
+    "addTask": {
+      "title": "新增任務",
+      "descriptionLabel": "任務描述",
+      "placeholder": "請輸入任務內容...",
+      "submit": "新增任務",
+      "cancel": "取消"
+    },
+    "statistics": {
+      "title": "任務統計",
+      "totalTasks": "任務總數",
+      "completed": "已完成",
+      "pending": "未完成",
+      "completionRate": "完成率",
+      "tasksByQuadrant": "各象限任務數",
+      "completionStatus": "完成狀態",
+      "chartView": "圖表",
+      "listView": "列表",
+      "allTasksDetail": "所有任務明細",
+      "summaryTotal": "總計：",
+      "summaryCompleted": "已完成：",
+      "summaryPending": "未完成：",
+      "statusDone": "✓ 已完成",
+      "statusPending": "⏳ 進行中",
+      "noTasks": "目前沒有任務可顯示"
+    }
+  },
+  "confirm": {
+    "clearAll": "確定要清空全部任務嗎？此操作無法復原。",
+    "deleteTask": "確定要刪除這個任務嗎？"
+  },
+  "seo": {
+    "title": "優先次序矩陣软件｜線上 Eisenhower Matrix 任務管理工具",
+    "description": "免費線上優先次序矩陣软件，依照緊急與重要程度整理待辦事項，套用經典 Eisenhower Matrix（艾森豪威爾矩陣）方法，幫助你更專注在真正重要的工作。"
+  }
+}

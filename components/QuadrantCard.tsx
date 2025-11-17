@@ -2,6 +2,7 @@
 
 import { Task, QuadrantType } from '@/types';
 import { TaskItem } from './TaskItem';
+import { useCommonTranslation } from '@/hooks/useTranslation';
 
 interface QuadrantCardProps {
   config: {
@@ -37,6 +38,42 @@ export function QuadrantCard({
   onDragLeave,
   onDrop,
 }: QuadrantCardProps) {
+  const { t } = useCommonTranslation();
+
+  const getTitleKey = (id: QuadrantType) => {
+    switch (id) {
+      case 'urgent-important':
+        return 'quadrants.doFirst.title';
+      case 'not-urgent-important':
+        return 'quadrants.schedule.title';
+      case 'urgent-not-important':
+        return 'quadrants.delegate.title';
+      case 'not-urgent-not-important':
+        return 'quadrants.eliminate.title';
+    }
+  };
+
+  const getSubtitleKey = (id: QuadrantType) => {
+    switch (id) {
+      case 'urgent-important':
+        return 'quadrants.doFirst.subtitle';
+      case 'not-urgent-important':
+        return 'quadrants.schedule.subtitle';
+      case 'urgent-not-important':
+        return 'quadrants.delegate.subtitle';
+      case 'not-urgent-not-important':
+        return 'quadrants.eliminate.subtitle';
+    }
+  };
+
+  const translateOrFallback = (key: string, fallback: string) => {
+    const value = t(key);
+    return value === key ? fallback : value;
+  };
+
+  const title = translateOrFallback(getTitleKey(config.id), config.title);
+  const subtitle = translateOrFallback(getSubtitleKey(config.id), config.subtitle);
+
   return (
     <div className="bg-white border-2 border-[#383838] rounded p-4 sm:p-6">
       <div className="flex items-center justify-between mb-4 sm:mb-6">
@@ -46,9 +83,9 @@ export function QuadrantCard({
               className="w-3 h-3 sm:w-4 sm:h-4 border-2 border-[#383838] shrink-0"
               style={{ backgroundColor: config.color }}
             />
-            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight truncate">{config.title}</h2>
+            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight truncate">{title}</h2>
           </div>
-          <p className="text-xs sm:text-sm text-gray-600">{config.subtitle}</p>
+          <p className="text-xs sm:text-sm text-gray-600">{subtitle}</p>
         </div>
         <button
           onClick={onAddTask}
@@ -63,7 +100,7 @@ export function QuadrantCard({
             e.currentTarget.style.boxShadow = 'none';
           }}
         >
-          + ADD
+          {t('quadrants.addButton')}
         </button>
       </div>
 
@@ -79,7 +116,7 @@ export function QuadrantCard({
         {tasks.length === 0 ? (
           <div className="empty-state text-center py-8 sm:py-12">
             <p className="text-gray-600 text-xs sm:text-sm">
-              No tasks yet. Click &quot;+ ADD&quot; to create one.
+              {t('quadrants.emptyHint')}
             </p>
           </div>
         ) : (

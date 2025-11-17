@@ -1,0 +1,76 @@
+{
+  "appName": "Eisenhower Matrix",
+  "header": {
+    "title": "Eisenhower Matrix",
+    "subtitle": "Organize tasks by urgency and importance"
+  },
+  "actions": {
+    "clearAll": "Clear All",
+    "stats": "Stats",
+    "add": "Add",
+    "cancel": "Cancel"
+  },
+  "quadrants": {
+    "doFirst": {
+      "title": "DO FIRST",
+      "subtitle": "Urgent & Important"
+    },
+    "schedule": {
+      "title": "SCHEDULE",
+      "subtitle": "Not Urgent but Important"
+    },
+    "delegate": {
+      "title": "DELEGATE",
+      "subtitle": "Urgent but Not Important"
+    },
+    "eliminate": {
+      "title": "ELIMINATE",
+      "subtitle": "Not Urgent & Not Important"
+    },
+    "addButton": "+ Add",
+    "emptyHint": "No tasks yet. Click \"+ Add\" to create one."
+  },
+  "home": {
+    "statsCard": {
+      "urgentImportant": "Do First",
+      "notUrgentImportant": "Schedule",
+      "urgentNotImportant": "Delegate",
+      "notUrgentNotImportant": "Eliminate"
+    }
+  },
+  "modals": {
+    "addTask": {
+      "title": "Add New Task",
+      "descriptionLabel": "Task Description",
+      "placeholder": "Enter task description...",
+      "submit": "Add Task",
+      "cancel": "Cancel"
+    },
+    "statistics": {
+      "title": "Task Statistics",
+      "totalTasks": "Total Tasks",
+      "completed": "Completed",
+      "pending": "Pending",
+      "completionRate": "Completion Rate",
+      "tasksByQuadrant": "Tasks by Quadrant",
+      "completionStatus": "Completion Status",
+      "chartView": "Chart",
+      "listView": "List",
+      "allTasksDetail": "All Tasks Detail",
+      "summaryTotal": "Total:",
+      "summaryCompleted": "Completed:",
+      "summaryPending": "Pending:",
+      "statusDone": "✓ Done",
+      "statusPending": "⏳ Pending",
+      "noTasks": "No tasks to display"
+    }
+  },
+  "confirm": {
+    "clearAll": "Are you sure you want to clear ALL tasks? This cannot be undone.",
+    "deleteTask": "Are you sure you want to delete this task?"
+  },
+  "seo": {
+    "title": "Eisenhower Matrix – Online Task Prioritization Tool",
+    "description": "Use this simple online Eisenhower Matrix to organize and prioritize your tasks by urgency and importance. A lightweight productivity tool for effective time management."
+  }
+}
