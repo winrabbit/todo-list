@@ -9,6 +9,8 @@ import {
   isSupportedLocale,
   type Locale,
 } from "@/i18n/config";
+import { Analytics } from '@vercel/analytics/next';
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -104,6 +106,7 @@ export default async function LocaleLayout({
       >
         <TranslationProvider locale={locale} messages={messages}>
           {children}
+          <Analytics/>
         </TranslationProvider>
         <SpeedInsights />
       </body>
