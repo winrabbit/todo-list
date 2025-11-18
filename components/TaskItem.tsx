@@ -76,10 +76,7 @@ export function TaskItem({
           onChange={(e) => setEditText(e.target.value)}
           onKeyDown={handleKeyDown}
           onBlur={handleSave}
-          className="flex-1 text-xs sm:text-sm font-medium leading-relaxed border-2 border-[#383838] px-2 py-1 focus:outline-none focus:ring-2"
-          style={{
-            '--tw-ring-color': quadrantColor,
-          } as React.CSSProperties}
+          className="flex-1 text-xs sm:text-sm font-medium leading-relaxed border border-[#383838] px-2 py-1 focus:outline-none focus:ring-2"
           autoFocus
         />
       ) : (
