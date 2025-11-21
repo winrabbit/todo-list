@@ -27,13 +27,13 @@ export function Header({ onClearAll, onShowStatistics }: HeaderProps) {
             <LanguageSwitcher />
             <button
               onClick={onClearAll}
-              className="btn-white px-4 sm:px-6 py-2 sm:py-3 rounded-none font-bold text-xs sm:text-sm uppercase flex-1 sm:flex-initial"
+              className="px-3 py-1.5 border-2 border-[#383838] bg-white text-[#383838] font-semibold uppercase text-xs sm:text-sm hover:-translate-y-px hover:-translate-x-px transition-transform"
             >
               {t('actions.clearAll')}
             </button>
             <button
               onClick={onShowStatistics}
-              className="btn-blue px-4 sm:px-6 py-2 sm:py-3 rounded-none font-bold text-xs sm:text-sm uppercase flex-1 sm:flex-initial whitespace-nowrap"
+              className="px-3 py-1.5 border-2 border-[#383838] bg-[#6FC2FF] text-[#383838] font-semibold uppercase text-xs sm:text-sm hover:-translate-y-px hover:-translate-x-px transition-transform"
             >
               📊 {t('actions.stats')}
             </button>

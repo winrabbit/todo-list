@@ -54,7 +54,7 @@ export const LanguageSwitcher = () => {
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="flex items-center gap-1 px-3 py-1.5 border-2 border-[#383838] bg-white text-[#383838] font-semibold uppercase hover:-translate-y-[1px] hover:-translate-x-[1px] transition-transform"
+        className="flex items-center gap-1 px-3 py-1.5 border-2 border-[#383838] bg-white text-[#383838] font-semibold uppercase hover:-translate-y-px hover:-translate-x-px transition-transform"
       >
         <span>{currentOption.label}</span>
         <span className="text-[10px] sm:text-[11px]">▼</span>
